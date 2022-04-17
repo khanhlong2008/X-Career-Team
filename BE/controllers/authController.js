@@ -7,13 +7,22 @@ let refreshTokens = [];
 const authController = {
     registerUser: async (req, res) => {
         try {
-            console.log("hello register")
+            const { username, phone, password } = req.value.body
             const salt = await bcrypt.genSalt(10);
-            const hashed = await bcrypt.hash(req.body.password, salt);
-            //Create new user
+            const hashed = await bcrypt.hash(password, salt);
+            const beforeInfo = await User.find()
+            const listUserName = beforeInfo.map((item) => {
+                return item.username
+            })
+            for (var i = 0; i < listUserName.length; i++) {
+                if (listUserName[i] == username)
+                    return res.status(404).json({ msg: 'This username is already registered' })
+                break;
+            }
+            // Create new user
             const newUser = await new User({
-                username: req.body.username,
-                email: req.body.email,
+                phone: phone,
+                username: username,
                 password: hashed,
             });
             const user = await newUser.save()
@@ -29,7 +38,7 @@ const authController = {
                 isAdmin: user.isAdmin
             },
             "secretkey",
-            { expiresIn: "30s" }
+            { expiresIn: "3d" }
         )
     },
     generateRefreshToken: (user) => {
@@ -44,12 +53,13 @@ const authController = {
     },
     loginUser: async (req, res) => {
         try {
-            const user = await User.findOne({ username: req.body.username });
+            const { username, password } = req.value.body
+            const user = await User.findOne({ username: username });
             if (!user) {
-                res.status(404).json("Incorrect username")
+                return res.status(404).json("Incorrect username")
             }
             const validPassword = await bcrypt.compare(
-                req.body.password,
+                password,
                 user.password
             )
             if (!validPassword) {
@@ -74,7 +84,6 @@ const authController = {
             res.status(500).json(err)
         }
     },
-    //refreshToken 
     requestRefreshToken: async (req, res) => {
         const refreshToken = req.cookies.refreshToken;
         if (!refreshToken) return res.status(401).json("You're not authenticated");
@@ -105,7 +114,6 @@ const authController = {
             // })
         })
     },
-    //LOG OUT
     logOut: async (req, res) => {
         //Clear cookies when user logs out
         refreshTokens = refreshTokens.filter((token) => token !== req.body.token);

@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema(
             require: true,
             min: 6,
             max: 20,
-            unique: true,
         },
         phone: {
             type: String,
@@ -19,6 +18,9 @@ const userSchema = new mongoose.Schema(
             type: String,
             require: true,
             min: 6,
+        },
+        avatar: {
+            type: String
         },
         address: {
             type: String,

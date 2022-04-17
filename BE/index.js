@@ -4,7 +4,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 
-const voucherHunter = require('./routers')
+const voucherHunter = require('./routes')
 
 const app = express()
 dotenv.config()

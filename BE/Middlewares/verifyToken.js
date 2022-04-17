@@ -15,7 +15,6 @@ const verifyToken = (req, res, next) => {
         res.status(401).json("You're not authenticated");
     }
 }
-
 const verifyTokenAndUserAuthorization = (req, res, next) => {
     verifyToken(req, res, () => {
         if (req.user.id === req.params.id || req.user.isAdmin) {
@@ -25,8 +24,6 @@ const verifyTokenAndUserAuthorization = (req, res, next) => {
         }
     });
 }
-
-
 const verifyTokenAndAdmin = (req, res, next) => {
     verifyToken(req, res, () => {
         if (req.user.isAdmin) {
@@ -37,8 +34,12 @@ const verifyTokenAndAdmin = (req, res, next) => {
     });
 }
 
-module.exports = {
-    verifyToken,
-    verifyTokenAndUserAuthorization,
-    verifyTokenAndAdmin,
-}
+
+
+
+
+
+
+
+module.exports = { verifyTokenAndUserAuthorization, verifyTokenAndAdmin, verifyToken }
+
