@@ -1,9 +1,10 @@
 const User = require('../models/user')
+const bcrypt = require('bcrypt')
 
 const userController = {
     newUser: async (req, res, next) => {
         try {
-            const { username, phone, password } = req.value.body
+            const { username, phone, password, isAdmin } = req.value.body
             const salt = await bcrypt.genSalt(10);
             const hashed = await bcrypt.hash(password, salt)
             const beforeInfo = await User.find()
@@ -27,6 +28,7 @@ const userController = {
                 phone: phone,
                 username: username,
                 password: hashed,
+                isAdmin: isAdmin,
             });
             await newUser.save();
             return res.status(201).json({ user: newUser });
