@@ -29,7 +29,7 @@ const authController = {
                 isAdmin: user.isAdmin
             },
             "secretkey",
-            { expiresIn: "3d" }
+            { expiresIn: "30s" }
         )
     },
     generateRefreshToken: (user) => {
@@ -67,11 +67,43 @@ const authController = {
                 })
                 // save all - password
                 const { password, ...others } = user._doc;
-                res.status(200).json({ ...others, accessToken });
+                res.setHeader('token', accessToken)
+                res.status(200).json({ ...others });
             }
         } catch (err) {
             res.status(500).json(err)
         }
+    },
+    //refreshToken 
+    requestRefreshToken: async (req, res) => {
+        const refreshToken = req.cookies.refreshToken;
+        if (!refreshToken) return res.status(401).json("You're not authenticated");
+        if (!refreshTokens.includes(refreshToken)) {
+            return res.status(403).json("Refresh token is not valid")
+        }
+        jwt.verify(refreshToken, "secretkey", (err, user) => {
+            if (err) {
+                console.log(err);
+            }
+            refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
+            //create new access token, refresh token and send to user
+            const newAccessToken = authController.generateAccessToken(user);
+            const newRefreshToken = authController.generateRefreshToken(user);
+            refreshTokens.push(newRefreshToken)
+            res.cookie("refreshToken", newRefreshToken, {
+                httpOnly: true,
+                secure: false,
+                path: "/",
+                sameSite: "strict",
+            })
+            res.setHeader('token', newAccessToken)
+            res.status(200).json("successfully");
+
+            // res.status(200).json({
+            //     accessToken: newAccessToken,
+            //     refreshToken: newRefreshToken,
+            // })
+        })
     },
     //LOG OUT
     logOut: async (req, res) => {
