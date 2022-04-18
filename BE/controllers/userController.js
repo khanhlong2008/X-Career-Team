@@ -2,7 +2,7 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt')
 
 const userController = {
-    newUser: async (req, res, next) => {
+    newUser: async (req, res) => {
         try {
             const { username, phone, password, isAdmin } = req.value.body
             const salt = await bcrypt.genSalt(10);
@@ -38,10 +38,10 @@ const userController = {
     },
     getAllUser: async (req, res) => {
         try {
-            const user = await User.find();
-            res.status(200).json(user);
+            const user = await User.find()
+            res.status(200).json(user)
         } catch (err) {
-            res.status(500).json(err);
+            res.status(500).json(err)
         }
     },
 
@@ -84,10 +84,10 @@ const userController = {
     deleteUser: async (req, res) => {
         try {
             const { id } = req.value.params
-            await User.findByIdAndDelete(id);
-            res.status(200).json("User deleted");
+            await User.findByIdAndDelete(id)
+            res.status(200).json("User deleted")
         } catch (err) {
-            res.status(500).json(err);
+            res.status(500).json(err)
         }
     },
 }
