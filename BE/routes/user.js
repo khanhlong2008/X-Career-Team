@@ -11,16 +11,13 @@ router.route('/')
         userController.newUser)
 
 router.route('/:id')
-    .get(verifyTokenAndUserAuthorization,
-        validator.validateParam(validator.schemas.idSchema, 'id'),
+    .get(validator.validateParam(validator.schemas.idSchema, 'id'),
         userController.getUserbyID)
     .delete(
         verifyTokenAndAdmin,
         validator.validateParam(validator.schemas.idSchema, 'id'),
         userController.deleteUser)
-    .put(
-        verifyTokenAndUserAuthorization,
-        validator.validateParam(validator.schemas.idSchema, 'id'),
+    .put(validator.validateParam(validator.schemas.idSchema, 'id'),
         validator.validateBody(validator.schemas.userOptionalSchema),
         userController.updateUser)
 
