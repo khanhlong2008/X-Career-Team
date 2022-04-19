@@ -3,10 +3,10 @@ const { verifyToken, verifyTokenAndAdmin } = require('../Middlewares/verifyToken
 const router = require('express-promise-router')()
 
 router.route('/')
-    .get(verifyToken, postController.getAllNews)
+    .get(postController.getAllNews)
     .post(verifyTokenAndAdmin, postController.createPost)
 router.route('/:id')
-    .get(verifyToken, postController.getPostbyID)
+    .get(postController.getPostbyID)
     .put(verifyTokenAndAdmin, postController.updatePost)
     .delete(verifyTokenAndAdmin, postController.deletePost)
 
