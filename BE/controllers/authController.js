@@ -120,6 +120,9 @@ const authController = {
         res.clearCookie("refreshToken");
         res.status(200).json("Logged out successfully!");
     },
+    AuthGoogle: async (req, res) => {
+
+    }
 }
 
 

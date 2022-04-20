@@ -1,14 +1,18 @@
 const authController = require('../controllers/authController');
-const router = require('express').Router();
+const router = require('express-promise-router')()
 const validator = require('../Middlewares/validation')
+const passport = require('passport')
+const passportConfig = require('../Middlewares/passport')
 
-router.post('/resgister',
-    validator.validateBody(validator.schemas.userRegisterSchema),
+router.route('/resgister')
+    .post(validator.validateBody(validator.schemas.userRegisterSchema),
     authController.registerUser)
-router.post('/login',
-    validator.validateBody(validator.schemas.userLoginSchema),
-    authController.loginUser)
-router.post("/logout", authController.logOut)
-router.post("/refresh", authController.requestRefreshToken);
-
+router.route('/login')
+    .post(validator.validateBody(validator.schemas.userLoginSchema), authController.loginUser)
+router.route("/logout")
+    .post(authController.logOut)
+router.route('/refresh')
+    .post(authController.requestRefreshToken);
+router.route('/google')
+    .post(passport.authenticate('google-plus-token'), authController.AuthGoogle)
 module.exports = router
