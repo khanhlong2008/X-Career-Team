@@ -1,0 +1,88 @@
+ 
+   
+[
+  { 
+    "Key":"CV",
+    "Name": "Stay & Swing",
+    "Status": "MỚi",
+    "Img_url": "https://assets.digilink.vn/uploads/2022/03/mat-2_1647999560.jpg",
+    "Category": ["Combo Voucher"],
+     "Stock": 100,
+    "Price_options": {"Price":"13128000"}
+   },
+  { 
+    "Key":"CV",
+    "Name": "Fly, Stay & Swing",
+    "Status": "MỚi",
+    "Img_url": "https://assets.digilink.vn/uploads/2022/03/mat-2_1647999560.jpg",
+    "Category": ["Combo Voucher"],
+     "Stock": 100,
+    "Price_options": {"Price":"139390"}
+   },
+  { 
+    "Key":"HK",
+    "Name": "Vé tháng hăng say công việc",
+    "Status": "Mới",
+    "Img_url": "https://assets.digilink.vn/uploads/2022/03/mat-2_1647999560.jpg",
+    "Category": ["Dịch Vụ Hàng Không"],
+     "Stock": 100,
+    "Price_options": {"Package":[{"1":"1650000"},{"2":"3100000"},{"3":"4500000"}]}
+   },
+  { 
+    "Key":"HK",
+    "Name": "Vé tháng trọn tuần vi vu",
+    "Status": "YÊU THÍCH",
+    "Img_url": "https://assets.digilink.vn/uploads/2021/11/BAY-NGUYEN-TUAN-scaled.jpg",
+    "Category": ["Dịch Vụ Hàng Không"],
+     "Stock": 100,
+    "Price_options": {"Package":[{"1":"2090000"},{"2":"4180.000"},{"3":"6270000"}]}
+   },
+ { 
+    "Key":"ND",
+    "Name": "FLC Holiday Membership – Peony (Hoa Mẫu Đơn)",
+    "Status": "ĐỀ XUẤT",
+    "Img_url": "https://assets.digilink.vn/uploads/2021/09/Peony.png",
+    "Category": ["Dịch Vụ Nghỉ Dưỡng"],
+     "Stock": 100,
+    "Price_options": {"Color":[{"White":"0%"},{"Violet":"5.5%"}],"Duration":[{"10":"639450000"},{"20":"1234800000"}]}
+   },
+  { 
+    "Key":"ND",
+    "Name": "FLC Holiday Membership – Camellia (Hoa Trà)",
+    "Status": "YÊU THÍCH",
+    "Img_url": "https://assets.digilink.vn/uploads/2021/09/Camellia.png",
+    "Category": ["Dịch Vụ Nghỉ Dưỡng"],
+     "Stock": 100,
+    "Price_options": {"Color":[{"White":"0%"},{"Violet":"5.5%"}],"Duration":[{"10":"152145000"},{"20":"280000000"}],"Room":{"1":"0%","2":"23%"}}
+   },
+  { 
+    "Key":"LK",
+    "Name": "FLC Membership IRIS",
+    "Discount":"80",
+    "Status": "Mới",
+    "Img_url": "https://assets.digilink.vn/uploads/2021/11/560x225_1636517340.png",
+    "Category": ["Dịch Vụ Liên Kết"],
+     "Stock": 100,
+    "Price_options": {"Lineofcredit":[{"1":"65990000","2":"93990000"}]}
+   },
+    { 
+    "Key":"LK",
+    "Name": "FLC Lotus Membership",
+     "Status": "",
+    "Img_url": "https://assets.digilink.vn/uploads/2021/06/anh-SP-06.png",
+    "Category": ["Dịch Vụ Liên Kết","Hạ Long","Quy Nhơn","Sầm Sơn"],
+     "Stock": 100,
+    "Price_options": {"Room":[{"1":"49200000","2":"77300000"}]}
+   },
+  { 
+    "Key":"G",
+    "Name": "Thẻ Hội viên liên kết 4 sân FLC Biscom",
+     "Status": "",
+    "Img_url": "https://assets.digilink.vn/uploads/2021/08/the-golfing-4-san.jpg",
+    "Category": ["Dịch Vụ Golf"],
+     "Stock": 100,
+    "Price_options": {"Duration":[{"1":"114000000","3":"228800000"}]}
+   }
+  
+]
+ 
