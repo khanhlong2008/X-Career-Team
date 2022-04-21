@@ -33,7 +33,8 @@ const validator = {
         }),
         userSchema: Joi.object().keys({
             username: Joi.string().min(5).max(20).required(),
-            phone: Joi.number().min(10).max(12).required(),
+            email: Joi.string().email().required(),
+            phone: Joi.string().min(10).max(12).required(),
             password: Joi.string().min(6).required(),
             avatar: Joi.string(),
             address: Joi.string(),
@@ -41,7 +42,8 @@ const validator = {
         }),
         userOptionalSchema: Joi.object().keys({
             username: Joi.string().min(5).max(20),
-            phone: Joi.number().min(10).max(12),
+            email: Joi.string().email().required(),
+            phone: Joi.string().min(10).max(12),
             password: Joi.string().min(6),
             avatar: Joi.string(),
             address: Joi.string(),
@@ -49,7 +51,8 @@ const validator = {
         }),
         userRegisterSchema: Joi.object().keys({
             username: Joi.string().min(5).max(20).required(),
-            phone: Joi.number().min(10).max(12).required(),
+            email: Joi.string().email().required(),
+            phone: Joi.string().min(10).max(12).required(),
             password: Joi.string().min(6).required(),
         }),
         userLoginSchema: Joi.object().keys({

@@ -8,6 +8,11 @@ const userSchema = new mongoose.Schema(
             min: 6,
             max: 20,
         },
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
         phone: {
             type: String,
             require: true,
@@ -16,8 +21,20 @@ const userSchema = new mongoose.Schema(
         },
         password: {
             type: String,
-            require: true,
             min: 6,
+        },
+        auhtGoogleID: {
+            type: String,
+            default: null
+        },
+        auhtFacebookID: {
+            type: String,
+            default: null
+        },
+        authType: {
+            type: String,
+            enum: ['local', 'google', 'facebook'],
+            default: 'local'
         },
         avatar: {
             type: String

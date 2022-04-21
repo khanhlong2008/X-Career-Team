@@ -120,8 +120,22 @@ const authController = {
         res.clearCookie("refreshToken");
         res.status(200).json("Logged out successfully!");
     },
-    AuthGoogle: async (req, res) => {
-
+    authGoogle: async (req, res) => {
+        try {
+            const user = await User.findOne(req.user._id)
+            const accessToken = authController.generateAccessToken(user)
+            const refreshToken = authController.generateRefreshToken(user)
+            res.cookie("refreshToken", refreshToken, {
+                httpOnly: true,
+                secure: false,
+                path: "/",
+                sameSite: "strict",
+            })
+            res.setHeader('token', accessToken)
+            res.status(200).json(user);
+        } catch (err) {
+            return res.status(500).json(err)
+        }
     }
 }
 

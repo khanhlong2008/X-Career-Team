@@ -8,11 +8,13 @@ router.route('/resgister')
     .post(validator.validateBody(validator.schemas.userRegisterSchema),
     authController.registerUser)
 router.route('/login')
-    .post(validator.validateBody(validator.schemas.userLoginSchema), authController.loginUser)
+    .post(validator.validateBody(validator.schemas.userLoginSchema),
+        authController.loginUser)
 router.route("/logout")
     .post(authController.logOut)
 router.route('/refresh')
     .post(authController.requestRefreshToken);
 router.route('/google')
-    .post(passport.authenticate('google-plus-token'), authController.AuthGoogle)
+    .post(passport.authenticate('google-plus-token', { session: false }),
+        authController.authGoogle)
 module.exports = router
