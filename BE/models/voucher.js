@@ -29,6 +29,10 @@ const Voucherchema = new mongoose.Schema(
             type: Number,
             default: 0
         },
+        quantity: {
+            type: Number,
+            required: true,
+        },
         price_options: {
             type: Object,
         }
