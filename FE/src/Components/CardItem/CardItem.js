@@ -1,12 +1,11 @@
 import "./CardItem.css";
 import "antd/dist/antd.css";
-
 import { Button, Space, Card, Image, Col, Row } from "antd";
+
 const CardItem = () => {
   return (
     <div>
-      <h1 className="card-item"> COMBO TRỌN GÓI, TỐI ĐA LỢI ÍCH </h1>
-
+      <h1 className="card-item">COMBO TRỌN GÓI, TỐI ĐA LỢI ÍCH </h1>
       <div className="site-card-wrapper">
         <Row>
           <Col span={12}>
