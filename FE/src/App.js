@@ -1,15 +1,15 @@
 import "./App.css";
 import Banner from "./Components/Banner/Banner";
-import CardItem from "./Components/CardItem/CardItem";
-import Cart from "./Components/Cart/Cart";
+import Cart from "./pages/Cart/Cart";
 import Header from "./pages/user/Layouts/Header/Header.js";
+import CardItem from "./pages/user/Vounchers";
 
 function App() {
   return (
     <div className="App">
-      {/* <Header />
+      <Header />
+      <Cart />
       <CardItem />
-      <Cart /> */}
       <Banner />
     </div>
   );
