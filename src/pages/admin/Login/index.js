@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
 import { LockOutlined,ArrowRightOutlined } from '@ant-design/icons';
-
+import Image from './img/bac_code.png';
 //css
 import "./login.css";
 
@@ -21,11 +21,11 @@ const LoginAdmin = () => {
   };
 
   return (
-    <div className="form-login">
+    <div className="form-login" style={{ backgroundImage: 'url(' + Image + ')' }}>
       <div className="">
         <h1>welcome to page admin</h1>
         <div className="box-form">
-          <Form form={form} name="horizontal_login" layout="inline" onFinish={onFinish}>
+          <Form form={form} name="horizontal_login" onFinish={onFinish}>
             
             <Form.Item
               name="username"
