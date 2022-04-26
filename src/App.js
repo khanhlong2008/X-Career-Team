@@ -29,11 +29,12 @@ function App() {
                 <Route path={"/admin"} exact component={LoginAdmin}></Route>
 
                 <Route exact path={"/admin/dashboard"}>
-                  {LogAdmin == false ? (
+                  {/* {LogAdmin == false ? (
                     <Redirect to="/admin"></Redirect>
                   ) : (
                     <Dashboard />
-                  )}
+                  )} */}
+                    <Dashboard />
                 </Route>
               </Switch>
             </Admin>
