@@ -1,31 +1,12 @@
 const mongoose = require('mongoose')
 
-const billSchema = new mongoose.Schema({
+const BillSchema = new mongoose.Schema({
     UserID: {
         type: mongoose.Schema.ObjectId,
         required: true
     },
     product: [
-        {
-            key: {
-                type: String,
-                require: true,
-            },
-            title: {
-                type: String,
-                require: true,
-            },
-            discount: {
-                typeof: Number,
-                default: 0
-            },
-            category: {
-                type: Array
-            },
-            price_options: {
-                type: Object,
-            },
-        }
+        { type: Object, }
     ],
     price: {
         type: Number,
@@ -40,3 +21,5 @@ const billSchema = new mongoose.Schema({
         required: true,
     },
 }, { timestamps: true })
+
+module.exports = mongoose.model("Bill", BillSchema)
