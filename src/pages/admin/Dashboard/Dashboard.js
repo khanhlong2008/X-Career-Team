@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import "./dashboard.css";
+import "../admin.main.css";
 
 const { Header, Content, Sider } = Layout;
 
@@ -29,10 +30,13 @@ const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, i
 
 const Dashboard = () => {
   return (
-    <Layout>
+    <Layout style={{
+      minHeight: '100vh',
+    }}>
       <Header className="header">
-        <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
+        <div className="logo">
+        Team ProjectX
+        </div>
       </Header>
       <Layout>
         <Sider width={200} className="site-layout-background">
@@ -45,23 +49,16 @@ const Dashboard = () => {
               borderRight: 0,
             }}
             items={items2}
+            theme="dark"
           />
         </Sider>
         <Layout
           style={{
-            padding: '0 24px 24px',
+            padding: '20px',
           }}
         >
-          <Breadcrumb
-            style={{
-              margin: '16px 0',
-            }}
-          >
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
           <Content
+            theme="dark"
             className="site-layout-background"
             style={{
               padding: 24,
