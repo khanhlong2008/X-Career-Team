@@ -19,9 +19,9 @@ mongoose
     .connect('mongodb://localhost/voucherHunter',
         { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        console.log('✅ Connected database from mongodb.');
+        console.log('🚀🚀🚀 Connected database from mongodb.');
         app.listen(5000, () => {
-            console.log(`Server is running on port 5000`);
+            console.log(`📦📦📦 Server is running on port 5000`);
         });
     })
     .catch((err) => {

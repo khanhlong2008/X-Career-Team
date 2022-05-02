@@ -33,6 +33,7 @@ const validator = {
         }),
         userSchema: Joi.object().keys({
             username: Joi.string().min(5).max(20).required(),
+            email: Joi.string().email().required(),
             phone: Joi.string().min(10).max(12).required(),
             password: Joi.string().min(6).required(),
             avatar: Joi.string(),
@@ -41,6 +42,7 @@ const validator = {
         }),
         userOptionalSchema: Joi.object().keys({
             username: Joi.string().min(5).max(20),
+            email: Joi.string().email().required(),
             phone: Joi.string().min(10).max(12),
             password: Joi.string().min(6),
             avatar: Joi.string(),
@@ -49,6 +51,7 @@ const validator = {
         }),
         userRegisterSchema: Joi.object().keys({
             username: Joi.string().min(5).max(20).required(),
+            email: Joi.string().email().required(),
             phone: Joi.string().min(10).max(12).required(),
             password: Joi.string().min(6).required(),
         }),
@@ -56,6 +59,16 @@ const validator = {
             username: Joi.string().min(5).max(20).required(),
             password: Joi.string().min(6).required(),
         }),
+        voucherSchema: Joi.object().keys({
+            key: Joi.string().max(2).required(),
+            title: Joi.string().min(5).max(50).required(),
+            discount: Joi.string().default(0),
+            status: Joi.string().max(20).required(),
+            img_url: Joi.string().required(),
+            category: Joi.array(),
+            stock: Joi.number().required(),
+            price_options: Joi.object(),
+        })
     }
 
 }
