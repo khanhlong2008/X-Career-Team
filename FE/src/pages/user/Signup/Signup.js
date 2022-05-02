@@ -12,7 +12,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import {Link as LInk} from 'react-router-dom'; 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -29,15 +32,28 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      username: data.get('username'),
-      password: data.get('password'),
-    });
-  };
 
+  const schema = yup.object().shape({
+    username: yup
+      .string()
+      .required("Vui lòng nhập tên đăng nhập")
+      .max(16, "Tên đăng nhập có từ 6-20 kí tự!")
+      .min(6, "Tên đăng nhập có từ 6-20 kí tự!"),
+    password: yup
+      .string()
+      .required("Vui lòng nhập mật khẩu")
+      .min(8, "Mật khẩu có từ 6-20 kí tự!")
+      .max(20, "Mật khẩu có từ 6-20 kí tự!"),
+    confirmPassword:yup
+      .string()
+      .required("Vui lòng xác nhận mật khẩu")
+      .oneOf([yup.ref('password'), null],'Mật khẩu không khớp')
+
+  });
+  const onSubmit = data => {
+    console.log(data);
+  };
+  const { register,control, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -56,37 +72,19 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Đăng ký
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={handleSubmit(onSubmit)} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="Họ"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Tên"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="email"
-                  label="Địa chỉ Email"
-                  name="email"
-                  autoComplete="email"
+                  id="username"
+                  label="Tên đăng nhập"
+                  name="username"
+                  autoComplete="username"
+                  {...register('username')}      
+                  FormHelperTextProps={{style:{color:'red'}}}        
+                  helperText = {errors.username?.message}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -97,13 +95,22 @@ export default function SignUp() {
                   label="Mật khẩu"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
+                  {...register('password')}      
+                  FormHelperTextProps={{style:{color:'red'}}}        
+                  helperText = {errors.password?.message}
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="Tôi muốn nhận thông báo qua Email!"
+                <TextField
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="Xác nhận mật khẩu"
+                  type="password"
+                  id="confirmPassword"   
+                  {...register('confirmPassword')}      
+                  FormHelperTextProps={{style:{color:'red'}}}        
+                  helperText = {errors.confirmPassword?.message}                               
                 />
               </Grid>
             </Grid>
@@ -117,9 +124,9 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <LInk to = '/signin'><Link href="#" variant="body2">
                   Đã có tài khoản? Đăng nhập!
-                </Link>
+                </Link></LInk>
               </Grid>
             </Grid>
           </Box>

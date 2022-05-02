@@ -13,7 +13,10 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import {Link as LInk} from 'react-router-dom';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -32,13 +35,23 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      username: data.get('username'),
-      password: data.get('password'),
-    });
+  
+  const schema = yup.object().shape({
+    username: yup
+      .string()
+      .required("Vui lòng nhập tên đăng nhập")
+      .max(16, "Tên đăng nhập có từ 6-20 kí tự!")
+      .min(6, "Tên đăng nhập có từ 6-20 kí tự!"),
+    password: yup
+      .string()
+      .required("Vui lòng nhập mật khẩu")
+      .min(8, "Mật khẩu có từ 6-20 kí tự!")
+      .max(20, "Mật khẩu có từ 6-20 kí tự!")
+  });
+  const { register,control, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
+  
+  const onSubmit = data => {
+    console.log(data);
   };
 
   return (
@@ -75,25 +88,32 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Đăng nhập
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={handleSubmit(onSubmit)} sx={{ mt: 1 }}>
               <TextField
+                error={errors.username ? true : false}
                 margin="normal"
                 required
                 fullWidth
                 name="username"
                 label="Tên đăng nhập"
                 id="username"
-               
+                {...register('username')}      
+                FormHelperTextProps={{style:{color:'red'}}}        
+                helperText = {errors.username?.message}
+                
               />
               <TextField
+              error={errors.password ? true : false}
                 margin="normal"
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Mật khẩu"
                 type="password"
                 id="password"
-            
+                {...register('password')}   
+                FormHelperTextProps={{style:{color:'red'}}}           
+                helperText = {errors.password?.message}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -121,9 +141,10 @@ export default function SignInSide() {
 
 
                     {/* nhét link trang tạo tài khoản */}
-                  <Link href="#" variant="body2">
-                    {"Chưa có tài khoản? Tạo tài khoản!"}
-                  </Link>
+                    
+                 <LInk to = '/signup'><Link href="#" variant="body2">
+                  Chưa có tài khoản? Tạo tài khoản!
+                </Link></LInk>
                 </Grid>
               </Grid>
               <Copyright sx={{ mt: 5 }} />
