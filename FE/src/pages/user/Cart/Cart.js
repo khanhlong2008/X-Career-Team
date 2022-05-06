@@ -2,7 +2,8 @@ import { Table, InputNumber, Button, Space } from "antd";
 import { useState } from "react";
 import "./Cart.css";
 const Cart = (_, index) => {
-  const [keyboard, setKeyboard] = useState(true);
+  const [valueInput, setvalueInput] = useState(1);
+
   if (index === 100) {
     return { colSpan: 0 };
   }
@@ -56,7 +57,12 @@ const Cart = (_, index) => {
       title: "Áo Nữ sex si",
       quantity: (
         <Space>
-          <InputNumber min={1} max={10} defaultValue={3} onChange={onChange} />
+          <InputNumber
+            min={1}
+            max={10}
+            defaultValue={valueInput}
+            onChange={onChange}
+          />
         </Space>
       ),
       price_quantity: "5.000.000",

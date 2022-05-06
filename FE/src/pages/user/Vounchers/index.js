@@ -11,7 +11,7 @@ const CardItem = () => {
       <div className="site-card-wrapper">
         <Row>
           <Col span={12}>
-            <Image src="https://assets.digilink.vn/uploads/2021/11/HANG-SAY-CV-1-scaled.jpg" />
+            <Image src="https://images.pexels.com/photos/11603647/pexels-photo-11603647.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
             <div className="card-price-container">
               <Space
                 direction="vertical"
@@ -38,7 +38,7 @@ const CardItem = () => {
           </Col>
 
           <Col span={12}>
-            <Image src="https://assets.digilink.vn/uploads/2021/11/HANG-SAY-CV-1-scaled.jpg" />
+            <Image src="https://images.pexels.com/photos/11603647/pexels-photo-11603647.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
             <div className="card-price-container">
               <Space
                 direction="vertical"
@@ -64,7 +64,7 @@ const CardItem = () => {
             </div>
           </Col>
           <Col span={12}>
-            <Image src="https://assets.digilink.vn/uploads/2021/11/HANG-SAY-CV-1-scaled.jpg" />
+            <Image src="https://images.pexels.com/photos/11603647/pexels-photo-11603647.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
             <div className="card-price-container">
               <Space
                 direction="vertical"
@@ -91,7 +91,7 @@ const CardItem = () => {
           </Col>
 
           <Col span={12}>
-            <Image src="https://assets.digilink.vn/uploads/2021/11/HANG-SAY-CV-1-scaled.jpg" />
+            <Image src="https://images.pexels.com/photos/11603647/pexels-photo-11603647.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
             <div className="card-price-container">
               <Space
                 direction="vertical"

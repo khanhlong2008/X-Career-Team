@@ -18,26 +18,26 @@ const Banner = () => {
       <Slider {...settings}>
         <div className="banner-slide">
           <img
-            src="https://inhat.vn/wp-content/uploads/2021/03/Shop-quan-ao-nu-sexy-ngau-6.png"
+            src="https://images.pexels.com/photos/3510717/pexels-photo-3510717.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt="/"
           />
         </div>
 
         <div className="banner-slide">
           <img
-            src="https://cf.shopee.vn/file/051cbc053410211dfaf5faeacee6d1e3"
+            src="https://images.pexels.com/photos/8075962/pexels-photo-8075962.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt="/"
           />
         </div>
         <div className="banner-slide">
           <img
-            src="https://zerdio.com.vn/wp-content/uploads/2021/04/cool-ngau-nu.jpeg"
+            src="https://images.pexels.com/photos/1094231/pexels-photo-1094231.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             alt="/"
           />
         </div>
         <div className="banner-slide">
           <img
-            src="https://i.pinimg.com/originals/8d/6e/52/8d6e52b41a234a1a655b59b6ab150c3a.jpg"
+            src="https://images.pexels.com/photos/290527/pexels-photo-290527.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             alt="/"
           />
         </div>
