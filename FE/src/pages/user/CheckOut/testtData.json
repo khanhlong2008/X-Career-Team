@@ -1,0 +1,42 @@
+[
+    {
+    "name": "Gà",
+      "description": "The best item ever",
+      
+      "unit_amount": {
+          "currency_code": "USD",
+          "value": "100.00"
+      },
+      "quantity": "1"
+  },
+  {
+    "name": "Chả",
+    "description": "The best item ever",
+    
+    "unit_amount": {
+        "currency_code": "USD",
+        "value": "100.00"
+    },
+    "quantity": "1"
+  },
+  {
+    "name": "Heo",
+    "description": "The best item ever",
+   
+    "unit_amount": {
+        "currency_code": "USD",
+        "value": "100.00"
+    },
+    "quantity": "1"
+  },
+  {
+    "name": "Bò",
+    "description": "The best item ever",
+    
+    "unit_amount": {
+        "currency_code": "USD",
+        "value": "100.00"
+    },
+    "quantity": "1"
+  }
+  ]
