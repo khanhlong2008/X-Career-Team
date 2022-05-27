@@ -17,6 +17,7 @@ import Dashboard from "./pages/admin/Dashboard/Dashboard";
 import SignIn from "./pages/user/Login/index";
 import SignUp from "./pages/user/Signup/Signup";
 import Detail from "./pages/user/Vounchers/Detail/detail";
+import userProfile from "./pages/user/UserProfile/UserProfile"
 function App() {
   return (
     <div className="App">
@@ -45,7 +46,7 @@ function App() {
                 <Route path="/vouchers/:slug" component={Detail}></Route>
                 <Route path="/login" component={SignIn}></Route>
                 <Route path="/register" component={SignUp}></Route>
-                <Route path=""></Route>
+                <Route path="/userProfile" component={userProfile}></Route>
               </Switch>
             </User>
           </Route>
