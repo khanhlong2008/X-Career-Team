@@ -158,17 +158,7 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="email"
-                  label="Email"
-                  type="email"
-                  id="email"
-                  {...register("email")}
-                  FormHelperTextProps={{ style: { color: "red" } }}
-                  helperText={errors.confirmPassword?.message}
-                />
+               
               </Grid>
               <Grid item xs={12}>
                 <TextField

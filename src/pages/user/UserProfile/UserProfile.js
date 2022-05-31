@@ -22,6 +22,7 @@ import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 import { Autocomplete } from '@mui/material';
 import moment from "moment";
 import "./UserProfile.css";
+import { useState } from 'react';
 //import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 //import { DateRangePicker, DateRange, DateRangeDelimiter } from "@material-ui/pickers";
 function Copyright(props) {
@@ -41,6 +42,14 @@ const theme = createTheme();
 
 export default function userProfile() {
 
+  const [selectedDateMUIformated, getselectedDateMUIformated] = UseState(new Date());
+  const [selectedDate, getSelectedDate] = UseState(moment(selectedDateMUIformated).format('DD-MM-yyyy'));
+  const [selectedGender, getGender] = UseState();
+  const gendersOptions = [
+
+    { label: 'Nam', gender: "male" },
+    { label: 'Nữ', gender: 'female' }
+  ]
   const schema = yup.object().shape({
     firstName: yup
       .string()
@@ -60,27 +69,23 @@ export default function userProfile() {
       .required("Vui lòng nhập email!"),
     phoneNumber: yup
       .string()
-      .required()
       .required("Vui lòng nhập SĐT!")
       .matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, "Số điện thoại không hợp lệ!"),
-
-
+    gender: yup
+     .string()
+     .required("Chọn giới tính!")
 
 
 
   });
   const onSubmit = data => {
-    console.log(selectedDate);
+      data.birthday = selectedDate;
+      data.gender = selectedGender;
+      console.log(data)
+    
   };
-  const { register, control, handleSubmit, formState: { errors } } = UseForm({ resolver: yupResolver(schema) });
-  const [selectedDate, getSelectedDate] = UseState(new Date());
-  const [selectedDateMUIformated,getselectedDateMUIformated] = UseState(new Date())
-  const gendersOptions = [
 
-    { label: 'Nam', id : "1" },
-    { label: 'Nữ', id: '2' }
-  ]
-  const [gender,getGender] = UseState();
+  const { register, control, handleSubmit, formState: { errors } } = UseForm({ resolver: yupResolver(schema) });
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -124,7 +129,7 @@ export default function userProfile() {
               <Grid item xs="6" >
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <DatePicker value={selectedDateMUIformated}
-                    onChange={(date) => { getselectedDateMUIformated(date);getSelectedDate(moment(date).format('dd-MM-yyyy'));}}
+                    onChange={(date) => { getselectedDateMUIformated(date); getSelectedDate(moment(date).format('DD-MM-yyyy')); }}
                     label="Sinh nhật"
                     format='dd-MM-yyyy'
                   ></DatePicker>
@@ -132,12 +137,22 @@ export default function userProfile() {
               </Grid>
               <Grid item xs="2">
                 <Autocomplete
+                  required
                   disablePortal
                   id="genderBox"
                   options={gendersOptions}
                   sx={{ width: 300 }}
-                  renderInput={(params) => <TextField {...params} label="Giới tính" />}
-                  onChange={getGender}
+                  renderInput={(params) => <TextField {...params} label="Giới tính"  FormHelperTextProps={{ style: { color: 'red' }}} helperText ={errors.gender?.message} {...register('gender')}/>}
+                  isOptionEqualToValue={(option, value) =>
+                    option.gender === value.gender
+                  }
+                  onChange={(event, value) => {
+                   
+                      getGender(value.gender);
+                    
+                  }}
+                 
+                  
                 />
               </Grid>
               <Grid item xs="12">

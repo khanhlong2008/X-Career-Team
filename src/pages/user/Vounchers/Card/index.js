@@ -21,7 +21,7 @@ const CardItem = (props) => {
               >
                 <Card
                   title={`${data["title"]}`}
-                  size="small"
+                  size="large"
                   bordered={false}
                 ></Card>
               </Space>
