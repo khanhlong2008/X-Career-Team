@@ -53,23 +53,19 @@ export default function userProfile() {
   const schema = yup.object().shape({
     firstName: yup
       .string()
-      .required("Vui lòng nhập họ!")
       .matches(/^[aA-zZ\s]+$/, "Có chứa ký tự không hợp lệ!")
       .min(1, "Độ dài từ 1-20 kí tự!")
       .max(20, "Độ dài từ 1-20 kí tự!"),
     lastName: yup
       .string()
-      .required("Vui lòng nhập tên!")
       .matches(/^[aA-zZ\s]+$/, "Có chứa ký tự không hợp lệ!")
       .min(1, "Độ dài từ 1-20 kí tự!")
       .max(20, "Độ dài từ 1-20 kí tự!"),
     email: yup
       .string()
-      .email("Địa chỉ email không hợp lệ!")
-      .required("Vui lòng nhập email!"),
+      .email("Địa chỉ email không hợp lệ!"),
     phoneNumber: yup
       .string()
-      .required("Vui lòng nhập SĐT!")
       .matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, "Số điện thoại không hợp lệ!"),
     gender: yup
      .string()
@@ -79,9 +75,9 @@ export default function userProfile() {
 
   });
   const onSubmit = data => {
-      data.birthday = selectedDate;
-      data.gender = selectedGender;
-      console.log(data)
+    data.birthday = selectedDate;
+    data.gender = selectedGender;
+    console.log(data)
     
   };
 

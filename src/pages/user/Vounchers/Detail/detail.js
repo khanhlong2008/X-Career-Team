@@ -9,9 +9,10 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import { Select } from "antd";
-
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Commonfc } from "../../../../Ultis/Commonfunction";
-
+import { addItem } from "../../../../Redux/Reducer/Cart";
 const { Option } = Select;
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
@@ -31,6 +32,10 @@ const Detail = () => {
 
   const [duration, setDuration] = useState(0);
 
+  const dispatch = useDispatch();
+
+  const cart = useSelector((state) => {console.log(state["cart"])});
+  console.log(cart);
   useEffect(() => {
     //Send By Query ex ?slug=string  ,
 
@@ -104,6 +109,19 @@ const Detail = () => {
 
     return result;
   };
+
+  const addCart = () => 
+  {
+    let temp = {
+      id : data["_id"],
+      title: data["title"],
+      img: data["img_url"],
+      price: parseInt(price)
+    };
+    console.log(data);
+    dispatch(addItem(temp))
+
+  }
 
   return (
     <div className="detail-container">
@@ -369,7 +387,7 @@ const Detail = () => {
             </span>
 
             <div className="div_btn">
-              <Button type="primary" block style={{ width: "50%", margin: 10 }}>
+              <Button onClick = {() => {addCart()}} type="primary" block style={{ width: "50%", margin: 10 }}>
                 Thêm Vào giỏ Hàng
               </Button>
               <Button type="red-7" block style={{ width: "50%", margin: 10 }}>
