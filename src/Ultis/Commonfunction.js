@@ -6,6 +6,13 @@ export const Commonfc = {
   },
   //paramete array type array , objectKey is string  like ['key']
 
+  keysofObj: (obj) => {
+    return Object.keys(obj);
+  },
+
+  valuesofObj: (obj) => {
+    return Object.values(obj);
+  },
   removeDuplicate: (array, objKey) => {
     const setarray = new Set();
     //remove duplicate item
@@ -16,6 +23,3 @@ export const Commonfc = {
     });
   },
 };
-
-
- 

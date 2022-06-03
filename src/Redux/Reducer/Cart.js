@@ -33,19 +33,20 @@ export const cartSlice = createSlice({
       }
     },
 
-    increaseItem: (state, action) => {
-      state.items.map((item, indx) => {
-        if (item.key == action.payload.key) item.value++;
-      });
-    },
+    // increaseItem: (state, action) => {
+    //   state.items.map((item, indx) => {
+    //     if (item.key == action.payload.key) item.value++;
+    //   });
 
-    decreaseItem: (state, action) => {
-      state.items.map((item, indx) => {
-        if (item.key === action.payload.key) {
-          if (item.value > 1) item.value--;
-        }
-      });
-    },
+    // },
+
+    // decreaseItem: (state, action) => {
+    //   state.items.map((item, indx) => {
+    //     if (item.key === action.payload.key) {
+    //       if (item.value > 1) item.value--;
+    //     }
+    //   });
+    // },
 
     //Get action index to remove
     removeItem: (state, action) => {
@@ -57,7 +58,6 @@ export const cartSlice = createSlice({
 });
 
 //Action
-export const { addItem, increaseItem, decreaseItem, removeItem } =
-  cartSlice.actions;
+export const { addItem, removeItem } = cartSlice.actions;
 
 export default cartSlice.reducer;

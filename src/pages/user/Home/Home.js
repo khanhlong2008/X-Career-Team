@@ -12,12 +12,7 @@ import Cart from "../../../Components/Cart/Cart.js";
 
 import { clientLogin } from "../../../Redux/Reducer/Account";
 import { Commonfc } from "../../../Ultis/Commonfunction";
-import {
-  addItem,
-  decreaseItem,
-  increaseItem,
-  removeItem,
-} from "../../../Redux/Reducer/Cart";
+import { addItem, removeItem } from "../../../Redux/Reducer/Cart";
 import Grid from "@mui/material/Grid";
 import Banner from "../../../Components/Banner/Banner";
 import CardItem from "../Vounchers/Card/index";
@@ -59,17 +54,6 @@ const Home = () => {
         console.log(err);
       });
   }, []);
-
-  const arrTest = [
-    {
-      key: "AV",
-      value: 0,
-    },
-    {
-      key: "SV",
-      value: 0,
-    },
-  ];
 
   //init value
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
@@ -130,37 +114,6 @@ const Home = () => {
           ) : (
             <Spin indicator={antIcon} />
           )}
-
-          {arrTest.map((data, indx) => {
-            return (
-              <Grid key={indx}>
-                <h1>{data.key}</h1>
-                <Grid>
-                  <button onClick={() => dispatch(addItem(data))}>
-                    Buy Item
-                  </button>
-                </Grid>
-
-                <Grid>
-                  <button onClick={() => dispatch(removeItem(data))}>
-                    Delete Item
-                  </button>
-                </Grid>
-
-                <Grid>
-                  <button onClick={() => dispatch(increaseItem(data))}>
-                    Increa
-                  </button>
-                </Grid>
-
-                <Grid>
-                  <button onClick={() => dispatch(decreaseItem(data))}>
-                    Decrea
-                  </button>
-                </Grid>
-              </Grid>
-            );
-          })}
         </Grid>
       </section>
     </div>
