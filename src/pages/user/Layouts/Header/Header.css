@@ -1,23 +1,11 @@
+
 .container{
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
-    margin: 2vh 0 2vh 0;
-}
-.container >  *{
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center !important;
+    padding: 0 !important;
 }
-.Logo{
-    background-image: url(./logo.png);
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center;
+.logo{
+    padding: 0 !important;
+    margin: 0 !important;
 }
-.Logo,.Cart{
-   height: 12vh;
-}
-
-
-

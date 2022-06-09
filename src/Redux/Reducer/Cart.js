@@ -13,7 +13,6 @@ export const cartSlice = createSlice({
     items: [],
     totalamount: 0,
   },
-
   reducers: {
     addItem: (state, action) => {
       state.items = [...state.items, action.payload];
@@ -41,6 +40,7 @@ export const cartSlice = createSlice({
       state.items = state.items.filter((item, indx) => {
         return indx != action.payload;
       });
+      state.totalamount -= action.payload.price;
     },
   },
 });

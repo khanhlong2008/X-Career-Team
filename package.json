@@ -26,6 +26,7 @@
     "js-cookie": "^3.0.1",
     "material-ui-phone-number": "^3.0.0",
     "react": "17.0.2",
+    "react-bootstrap": "^2.4.0",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.30.0",
     "react-redux": "^8.0.1",

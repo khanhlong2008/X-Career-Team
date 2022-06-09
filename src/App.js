@@ -19,9 +19,12 @@ import SignUp from "./pages/user/Signup/Signup";
 import Detail from "./pages/user/Vounchers/Detail/detail";
 import userProfile from "./pages/user/UserProfile/UserProfile"
 import Cart from "./pages/user/Cart/Cart"
+
+
 function App() {
   return (
     <div className="App">
+      
       <Router>
         <Switch>
           <Route path={"/admin/:path?"} exact>
@@ -49,6 +52,7 @@ function App() {
                 <Route path="/register" component={SignUp}></Route>
                 <Route path="/userProfile" component={userProfile}></Route>
                 <Route path = "/cart" component={Cart}></Route>
+                
               </Switch>
             </User>
           </Route>

@@ -38,6 +38,9 @@ const Detail = () => {
   console.log(cart);
   useEffect(() => {
     //Send By Query ex ?slug=string  ,
+ 
+
+
 
     axios
       .get(`${Request_User.voucher}/${slug}`)
