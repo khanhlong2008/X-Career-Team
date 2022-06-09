@@ -9,3 +9,14 @@
     padding: 0 !important;
     margin: 0 !important;
 }
+.Button:focus{
+    outline: none !important;
+}
+.Button{
+    outline: none !important;
+    background-color: white;
+    border: 0;
+}
+.Button:hover{
+    outline: none;
+}

@@ -14,7 +14,7 @@ const Header = () => {
     }
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light container d-flex">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light container d-flex align-items-center mt-3">
       <a className="navbar-brand col-2 d-flex  align-items-center justify-content-center logo" href="#"> Logo</a>
       <form className="form-inline col-5 d-flex justify-content-center ">
         <input className="form-control  col-8 mr-1" type="search" placeholder="Search" aria-label="Search" />
@@ -23,14 +23,15 @@ const Header = () => {
       <div className="collapse navbar-collapse col-6 " id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link " href="#">Trang chủ <span className="sr-only">(current)</span></a>
+            <button className="nav-link Button" href="#">Trang chủ <span className="sr-only">(current)</span></button>
           </li>
           <li className="nav-item  ">
-            <a className="nav-link" href="#">Về chúng tôi</a>
+            <button className="nav-link Button" href="#">Về chúng tôi</button>
           </li>
           <li className="nav-item " >
-            <a className="nav-link" href="#">Đăng nhập/Đăng ký</a>
+            <button className="nav-link Button" href="#">Đăng nhập/Đăng ký</button>
           </li>
+
         </ul>
 
       </div>
