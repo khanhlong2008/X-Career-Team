@@ -1,0 +1,13 @@
+.aboutUs,.socialMedia,.wrapper
+{
+    
+    
+    
+}
+.logo{
+    width: 100px;
+    object-fit: cover;
+}
+.socialMedia{
+    border-top: 1px solid gray;
+}

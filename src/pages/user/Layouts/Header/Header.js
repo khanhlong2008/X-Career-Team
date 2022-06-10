@@ -14,30 +14,30 @@ const Header = () => {
     }
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light container d-flex align-items-center mt-3">
-      <a className="navbar-brand col-2 d-flex  align-items-center justify-content-center logo" href="#"> Logo</a>
-      <form className="form-inline col-5 d-flex justify-content-center ">
-        <input className="form-control  col-8 mr-1" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success col-3 d-flex justify-content-center align-items-center " type="submit"><SearchIcon /></button>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light container d-flex mt-3 mb-3  align-items-center flex-row">
+      <a className="navbar-brand col-1 d-flex  align-items-center align-self-start logo" href="#"> Logo</a>
+      <form className="form-inline col-7 d-flex justify-content-center align-items-center align-self-center">
+        <input className="form-control  col-9 mr-1" type="search" placeholder="Search" aria-label="Search" />
+        <button className="btn btn-outline-success my-2 my-sm-0 col-2 d-flex justify-content-center align-items-center " type="submit"><SearchIcon /></button>
       </form>
-      <div className="collapse navbar-collapse col-6 " id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <button className="nav-link Button" href="#">Trang chủ <span className="sr-only">(current)</span></button>
-          </li>
-          <li className="nav-item  ">
-            <button className="nav-link Button" href="#">Về chúng tôi</button>
-          </li>
-          <li className="nav-item " >
-            <button className="nav-link Button" href="#">Đăng nhập/Đăng ký</button>
-          </li>
-
-        </ul>
-
-      </div>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
+      <div className="collapse navbar-collapse align-self-end ml-3" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active ">
+            <a className="nav-link ml-4" href="#">Trang chủ <span className="sr-only">(current)</span></a>
+          </li>
+          <li className="nav-item  ">
+            <a className="nav-link ml-4" href="#">Về chúng tôi</a>
+          </li>
+          <li className="nav-item " >
+            <a className="nav-link ml-4" href="#">Đăng nhập/Đăng ký</a>
+          </li>
+        </ul>
+
+      </div>
+      
     </nav>
   );
 };

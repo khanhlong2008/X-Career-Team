@@ -1,4 +1,6 @@
+
 import React from "react";
+import Footer from "./Layouts/Footer/Footer";
 import Header from "./Layouts/Header/Header";
 
 const User = ({ children }) => {
@@ -9,6 +11,7 @@ const User = ({ children }) => {
       <Header></Header>
 
       <main>{children}</main>
+      <Footer></Footer>
     </section>
   );
 };
