@@ -13,7 +13,7 @@ const Banner = () => {
     autoplay: true,
   };
   return (
-    <div style={{ width: "100%", margin: "25px" }}>
+    <div>
       <Slider {...settings}>
         <div className="banner-slide">
           <img

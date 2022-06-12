@@ -14,7 +14,7 @@ const Header = () => {
     }
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light container d-flex mt-3 mb-3  align-items-center flex-row">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light container d-flex mb-3  align-items-center flex-row">
       <a className="navbar-brand col-1 d-flex  align-items-center align-self-start logo" href="#"> Logo</a>
       <form className="form-inline col-7 d-flex justify-content-center align-items-center align-self-center">
         <input className="form-control  col-9 mr-1" type="search" placeholder="Search" aria-label="Search" />

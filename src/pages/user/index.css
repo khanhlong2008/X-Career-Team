@@ -1,5 +1,7 @@
 html{
     margin: 1.9em;
     padding: 0 auto;
-    font-size: 1em;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
 }
