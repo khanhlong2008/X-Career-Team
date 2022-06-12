@@ -18,7 +18,7 @@
 .flex{
   display: flex;
 }
-.col{
+.colum{
   flex-direction: column;
 }
 .row{
@@ -39,4 +39,8 @@
 
 .al-start{
   align-items: flex-start;
+}
+
+.sp-bot{
+  margin-bottom: 15px;
 }

@@ -53,7 +53,7 @@ const Detail = () => {
           setPrice(res.data["price_options"]["price"]);
         }
         if (res.data["key"] == "HK") {
-          setPrice(res.data["price_options"]["package"][0]["1"]);
+          setPrice(res.data["price_options"]["package"][0].value);
         }
 
         if (res.data["key"] == "ND" || res.data["key"] == "G") {
@@ -207,11 +207,8 @@ const Detail = () => {
                         {data["price_options"]["package"].map(
                           (packages, indx) => {
                             return (
-                              <Option
-                                key={indx}
-                                value={Commonfc.valuesofObj(packages)}
-                              >
-                                {Commonfc.keysofObj(packages)} Tháng
+                              <Option key={indx} value={packages.value}>
+                                {packages.title} Tháng
                               </Option>
                             );
                           },
@@ -380,7 +377,10 @@ const Detail = () => {
               </Grid>
               <Grid item={true} xs={12}>
                 {" "}
-                {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND
+                {price != undefined
+                  ? price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+                    "VND"
+                  : 0}
               </Grid>{" "}
             </Grid>
 

@@ -1,48 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import "antd/dist/antd.css";
 import { Layout, Menu, Breadcrumb } from "antd";
 import {
   UserOutlined,
   LaptopOutlined,
   NotificationOutlined,
+  DollarOutlined,
+  FileWordOutlined,
+  DatabaseOutlined,
 } from "@ant-design/icons";
 import "./dashboard.css";
 import "../admin.main.css";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import Addproduct from "../Products/Addnew";
+
 const { Header, Content, Sider } = Layout;
 
 const items2 = [
   {
-    icon: UserOutlined,
+    icon: DatabaseOutlined,
+    titleName: "Vouchers",
+    child: [
+      { subKey: "1", sublabel: "Danh sách" },
+      { subKey: "2", sublabel: "Thêm mới Voucher & Category" },
+    ],
+  },
+  {
+    icon: FileWordOutlined,
     titleName: "Bài Viết",
     child: [
-      { subKey: "1", sublabel: "Chi tiết" },
-      { subKey: "2", sublabel: "thu 2" },
+      { subKey: "3", sublabel: "Danh sách" },
+      { subKey: "4", sublabel: "Thêm mới" },
     ],
   },
+
   {
     icon: UserOutlined,
-    titleName: "Sản Phẩm",
+    titleName: "Người dùng",
     child: [
-      { subKey: "1", sublabel: "Chi tiết" },
-      { subKey: "2", sublabel: "thu 2" },
+      { subKey: "5", sublabel: "Danh sách" },
+      { subKey: "6", sublabel: "Thêm mới" },
     ],
   },
   {
-    icon: LaptopOutlined,
-    titleName: "Liên Hệ",
+    icon: DollarOutlined,
+    titleName: "Hóa đơn",
     child: [
-      { subKey: "1", sublabel: "Chi tiết" },
-      { subKey: "2", sublabel: "thu 2" },
+      { subKey: "7", sublabel: "Biểu đồ" },
+      { subKey: "8", sublabel: "Danh sách" },
     ],
   },
   {
     icon: NotificationOutlined,
-    titleName: "Cài Đặt",
+    titleName: "Liên hệ",
     child: [
-      { subKey: "1", sublabel: "Chi tiết" },
-      { subKey: "2", sublabel: "thu 2" },
+      { subKey: "9", sublabel: "Chi tiết" },
+      { subKey: "10", sublabel: "Gửi phản hồi" },
     ],
   },
 ].map((data, index) => {
@@ -63,7 +77,26 @@ const items2 = [
 const Dashboard = () => {
   const info_Admin = useSelector((state) => state["account"]["Admin"]);
 
-  console.log(info_Admin);
+  // console.log(info_Admin);
+
+  //State
+
+  const [selected, setSelected] = useState(1);
+
+  const onClickMenu = (e) => {
+    setSelected(e.key);
+
+    console.log(selected);
+  };
+
+  const renderSwitch = () => {
+    switch (selected) {
+      case 1:
+        return <Addproduct></Addproduct>;
+      default:
+        return <Addproduct></Addproduct>;
+    }
+  };
 
   return (
     <Layout
@@ -75,13 +108,14 @@ const Dashboard = () => {
         to={info_Admin["isAdmin"] == true ? "/admin/dashboard" : "/admin"}
       ></Redirect>
       <Header className="header">
-        <div className="logo">Team ProjectX</div>
+        <div className="logo">Admin page</div>
       </Header>
       <Layout>
-        <Sider width={200} className="site-layout-background">
+        <Sider width={300} className="site-layout-background">
           <Menu
+            onClick={onClickMenu}
             mode="inline"
-            defaultSelectedKeys={["1"]}
+            defaultSelectedKeys={["sub1"]}
             defaultOpenKeys={["sub1"]}
             style={{
               height: "100%",
@@ -105,7 +139,7 @@ const Dashboard = () => {
               minHeight: 280,
             }}
           >
-            Content
+            {renderSwitch()}
           </Content>
         </Layout>
       </Layout>

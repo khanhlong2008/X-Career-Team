@@ -1,11 +1,13 @@
 const host = "http://localhost:5000";
 export const Request_User = {
-  register: `${host}/auth/register`,
-  login: `${host}/auth/login`,
-  topvoucher: `${host}/voucher/top`,
-  voucher: `${host}/voucher/find`,
+  register: `${host}/auth/register`, //post
+  login: `${host}/auth/login`, //post
+  topvoucher: `${host}/voucher/top`, //get
+  voucher: `${host}/voucher/find`, //get
 };
 
 export const Request_Admin = {
-  voucher: `${host}/voucher?`,
+  getvoucher: `${host}/voucher?`, //get
+  getcategory: `${host}/category/all`,
+  getcategoryID: `${host}/category/`,
 };

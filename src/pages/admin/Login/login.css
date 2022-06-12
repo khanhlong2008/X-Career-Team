@@ -40,8 +40,8 @@ body {
 }
 
 input {
-    background-color: #434458;
-    color: white;
+    background-color: #caccf5;
+    color: rgb(93, 89, 89);
 }
 
 .ant-form-item-explain-error {
