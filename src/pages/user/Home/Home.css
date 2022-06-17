@@ -1,7 +1,7 @@
 html{
-    max-width: 1200px;
-    display: flex;
-    justify-content: center;
+    
+    padding: 0;
+
 }
 .Main-menu{
 
@@ -11,14 +11,46 @@ html{
 
 }
 .Vouchers-box{
-
+    display: flex;
+    justify-content: center;
+    max-width: 1200px!important;
+    flex-direction: column;
     width: 100%;
-    margin: 10px;
- 
-    
-
 }
 .Box-container{
-    width: 100%;
+   
     
+}
+.productSection{
+   width:100%;
+   margin: 1em 0 1em 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding:0 !important;
+   border-bottom: 1px solid #bbb;
+}
+.productTitle{
+    width:max-content;
+    font-size: 1.8em;
+    font-weight:500;
+    border-bottom:1px solid #bbb;
+    margin: 0.5em;
+}
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 968px;
+    align-items: center;
+    justify-content:center;
+    padding: 0;
+    width:100%;
+}
+.card{
+    padding: 0!important;
+    margin: 2em 2em 2em 2em;
+}
+.card-img-top{
+    height: 200px!important;
+    object-fit: cover;
 }

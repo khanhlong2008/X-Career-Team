@@ -1,9 +1,8 @@
 
-.container{
-    width: 100% !important;
-    display: flex; 
-    padding: 0 !important;
 
+.containerr{
+    margin: 0 !important;
+    padding: 1em 0 1em 0!important;
 }
 .logo{
     padding: 0!important;

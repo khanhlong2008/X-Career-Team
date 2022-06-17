@@ -1,4 +1,4 @@
-
+import "./Banner.css"
 const Banner = () => {
   const settings = {
     dots: true,
@@ -9,7 +9,7 @@ const Banner = () => {
     autoplay: true,
   };
   return (
-    <div>
+    <div className="carWrapper">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

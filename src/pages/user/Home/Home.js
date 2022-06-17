@@ -4,7 +4,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 import Contacts from "../Contacts";
 
 import { BrowserRouter as Router, Link } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from "react-redux";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -30,15 +30,15 @@ const Home = () => {
 
   const [topvoucher, Settopvoucher] = useState([]);
 
-  const mobiles1 = useMediaQuery("(max-width:320px)");
+  // const mobiles1 = useMediaQuery("(max-width:320px)");
 
-  const mobiles2 = useMediaQuery("(max-width:600px)");
+  // const mobiles2 = useMediaQuery("(max-width:600px)");
 
-  const GridXs = {
-    opt1: 6,
-    opt2: 10,
-    opt3: 12,
-  };
+  // const GridXs = {
+  //   opt1: 6,
+  //   opt2: 10,
+  //   opt3: 12,
+  // };
 
   //Mount
 
@@ -71,18 +71,17 @@ const Home = () => {
       </section>
       <section className="Main-menu"></section>
       <section className="Vouchers-box">
-        <Grid container className=" Box-container flex jus-center  ">
+        {/* <Grid container className=" Box-container flex jus-center  " >
           {topvoucher ? (
             topvoucher.map((main, indx) => {
               return (
                 <Grid
                   item={true}
-                  xs={12}
                   className=" flex   jus-center"
                   key={indx}
                 >
                   <Suspense fallback={<Spin indicator={antIcon} />}>
-                    <Grid item={true} xs={8}>
+                    <Grid item={true} >
                       <h4 style={{ textAlign: "center" }}>{main["title"]}</h4>
                       <Grid className="" container>
                         {main["items"].map((item, indx) => {
@@ -98,9 +97,10 @@ const Home = () => {
                             >
                               {" "}
                               <CardItem
-                                x
+                                
                                 key={indx}
                                 data={item}
+
                               ></CardItem>{" "}
                             </Grid>
                           );
@@ -114,7 +114,54 @@ const Home = () => {
           ) : (
             <Spin indicator={antIcon} />
           )}
-        </Grid>
+        </Grid> 
+        
+        
+        
+        
+        
+        */}
+
+
+        {
+          topvoucher ? (
+            topvoucher.map((main, indx) => {
+              return (
+                <div>
+                  <div className="productSection d-flex justify-content-center flex-column" key={indx}>
+                    {console.log(main)}
+                    <div className="productTitle">
+                      {main["title"]}
+                    </div>
+                    <div className="products">
+                      {main["items"].map((item, indx) => {
+                        return (
+                          <div className="card col-md-5 col-sm-12" >
+                            <img className="card-img-top" src={item.img_url} alt="Card image cap" />
+                            <div className="card-body">
+                              <h5 className="card-title">{item.title}</h5>
+                              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <CardItem
+
+                                key={indx}
+                                data={item}
+
+                              ></CardItem>{" "}
+                              {console.log(item)}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+            )) : (
+            <div className="spinner-border text-info" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          )}
       </section>
     </div>
   );

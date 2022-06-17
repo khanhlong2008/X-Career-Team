@@ -10,29 +10,13 @@ const CardItem = (props) => {
   return (
     <div>
       <Link to={`vouchers/${data["slug"]}`}>
-        <div className="site-card-wrapper">
-          <Row style={{ maxHeight: "450px" }}>
-            <img className="card-img" src={data["img_url"]} />
-            <div className="card-price-container">
-              <Space
-                direction="vertical"
-                size="large"
-                style={{ display: "flex" }}
-              >
-                <Card
-                  title={`${data["title"]}`}
-                  size="large"
-                  bordered={false}
-                ></Card>
-              </Space>
+        <div className="site-card-wrapper">          
               <div className="card-price">
                 <Button type="primary" className="btn-color">
                   Xem thông tin...
                 </Button>
               </div>
             </div>
-          </Row>
-        </div>
       </Link>
     </div>
   );
