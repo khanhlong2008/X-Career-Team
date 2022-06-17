@@ -1,41 +1,40 @@
 import "./Banner.css"
+
+
+import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1
+};
 const Banner = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-  };
-  return (
-    <div className="carWrapper">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src={require("./Banana2.png")} alt="First slide"/>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src={require("./Banana2.png")} alt="Second slide"/>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src={require("./Banana2.png")} alt="Third slide"/>
-          </div>
+
+   return (
+    <div className = "container"> 
+      <Slider {...settings}>
+        <div>
+          <img src='https://i.pinimg.com/originals/3e/3c/b7/3e3cb7be3fc4a4593b5fb0139ca227de.png' alt="" srcset="" />
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+        <div>
+          <img src='https://i.pinimg.com/originals/3e/3c/b7/3e3cb7be3fc4a4593b5fb0139ca227de.png' alt="" srcset="" />
+        </div>
+        <div>
+          <img src='https://i.pinimg.com/originals/3e/3c/b7/3e3cb7be3fc4a4593b5fb0139ca227de.png' alt="" srcset="" />
+        </div>
+        <div>
+          <img src='https://i.pinimg.com/originals/3e/3c/b7/3e3cb7be3fc4a4593b5fb0139ca227de.png' alt="" srcset="" />
+        </div>
+        <div>
+          <img src='https://i.pinimg.com/originals/3e/3c/b7/3e3cb7be3fc4a4593b5fb0139ca227de.png' alt="" srcset="" /> 
+        </div>
+        <div>
+          <img src='https://i.pinimg.com/originals/3e/3c/b7/3e3cb7be3fc4a4593b5fb0139ca227de.png' alt="" srcset="" />
+        </div>
+      </Slider>
     </div>
   );
 };

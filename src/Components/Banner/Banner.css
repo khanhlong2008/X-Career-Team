@@ -1,3 +1,13 @@
-.carWrapper{
+
+.container{
     max-width: 976px;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height:480px;
+}
+.container>img{
+    object-fit: cover;
+    
 }
