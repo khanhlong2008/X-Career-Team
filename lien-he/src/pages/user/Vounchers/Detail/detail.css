@@ -1,0 +1,71 @@
+.detail-container{
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #ededed;
+}
+
+
+.ant-image-img{
+
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+.ant-checkbox-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 35px;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.prict_class{
+    font-size: 20px;
+    margin: 10px 0;
+    font-family: system-ui;
+}
+
+.prict_class span{
+    font-size: 18px;
+    color: #727272;
+}
+
+.prict_class span p{
+    font-size: 20px;
+    color: #727272;
+    text-decoration: line-through;
+}
+
+.prict_class span h2{
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.hang_chinh-gan{
+    font-size: 16px;
+    margin: 0;
+}
+
+.div_color p{
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.div_btn{
+    display: flex;
+}
+
+.options{
+
+        
+}

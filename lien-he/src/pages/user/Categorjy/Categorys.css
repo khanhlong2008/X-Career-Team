@@ -1,0 +1,22 @@
+.categorys-container{
+    /* width: 80%; */
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.site-layout{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.site-layout-Link{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.site-layout-Link a{
+    padding: 15px 5px;
+    text-decoration: none;
+    color: black;
+}
