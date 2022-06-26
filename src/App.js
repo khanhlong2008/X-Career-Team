@@ -19,6 +19,7 @@ import SignUp from "./pages/user/Signup/Signup";
 import Detail from "./pages/user/Vounchers/Detail/detail";
 import userProfile from "./pages/user/UserProfile/UserProfile"
 import Cart from "./pages/user/Cart/Cart"
+import ArticleLayout from "./pages/user/Ariticles/Index";
 
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
                 <Route path="/register" component={SignUp}></Route>
                 <Route path="/userProfile" component={userProfile}></Route>
                 <Route path = "/cart" component={Cart}></Route>
-                
+                <Route path = "/article" component={ArticleLayout}></Route>
               </Switch>
             </User>
           </Route>
