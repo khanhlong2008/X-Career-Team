@@ -1,0 +1,18 @@
+.newest-container{
+    margin: 0 !important;
+    width: 100%;
+    
+}
+.card-img-top{
+    max-height: 595px !important;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card-title{
+    font-size:xx-large!important;
+
+}
+.card-text{
+    font-size: large;
+}

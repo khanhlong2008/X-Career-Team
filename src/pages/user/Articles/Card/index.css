@@ -1,0 +1,21 @@
+.card-container{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+.img{
+    max-height: 70px;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-self: flex-start;
+}
+.banner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+    font-size: large;
+    font-weight:500;
+}

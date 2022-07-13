@@ -1,0 +1,31 @@
+.articles-container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.top-news{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.newest-news{
+    width: 70%;
+}
+.trending-news{
+    width:25%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction:column;
+}
+@media (max-width: 800px)
+{
+    .newest-news,.trending-news{
+        width: 100%;
+        height: fit-content;
+        
+    }
+    .trending-news{
+        margin-top: 20px;
+    }
+}
